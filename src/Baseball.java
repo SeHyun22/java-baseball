@@ -88,4 +88,15 @@ public class Baseball {
         }
         return ballCount + Message.BALL + " " + strikeCount + Message.STRIKE;
     }
+    public void play() {
+        System.out.println(Message.GAME_START);
+        String result = "";
+        do {
+            System.out.print(Message.INPUT);
+            userNumber = exception();
+            result = analyze();
+            System.out.println(result);
+        } while (!result.equals(Message.GAME_CLEAR));
+    }
+
 }

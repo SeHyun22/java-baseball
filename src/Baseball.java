@@ -45,5 +45,36 @@ public class Baseball {
         }
         return input;
     }
+    private boolean strikeCheck(final char userDigit, int position) {
+        for (int i = 0; i < 3; i++) {
+            if (userDigit == computerNumber.charAt(i) && position == i) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean ballCheck(final char userDigit) {
+        for (int i = 0; i < 3; i++) {
+            if (userDigit == computerNumber.charAt(i)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String analyze() {
+        int ballCount = 0;
+        int strikeCount = 0;
+        for (int i = 0; i < 3; i++) {
+            char userDigit = userNumber.charAt(i);
+            if (strikeCheck(userDigit, i)) {
+                strikeCount++;
+            } else if (ballCheck(userDigit)) {
+                ballCount++;
+            }
+        }
+        return getResult(ballCount, strikeCount);
+    }
 
 }

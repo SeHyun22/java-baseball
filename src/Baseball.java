@@ -98,5 +98,16 @@ public class Baseball {
             System.out.println(result);
         } while (!result.equals(Message.GAME_CLEAR));
     }
+    public boolean restartCheck() {
+        System.out.println(Message.RESTART_END);
+        String answer = Console.readLine();
 
+        if (answer.equals("1")) {
+            return true;
+        } else if (answer.equals("2")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 }

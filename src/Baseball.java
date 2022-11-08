@@ -31,4 +31,19 @@ public class Baseball {
         }
         return result;
     }
+
+    private String exception() {
+        String input = Console.readLine();
+        for (int i = 0; i < 3; i++) {
+            char zero = input.charAt(i);
+            if (zero == '0') {
+                throw new IllegalArgumentException();
+            }
+        }
+        if (input.length() != 3) {
+            throw new IllegalArgumentException();
+        }
+        return input;
+    }
+
 }

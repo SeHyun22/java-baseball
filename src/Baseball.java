@@ -76,5 +76,16 @@ public class Baseball {
         }
         return getResult(ballCount, strikeCount);
     }
-
+    private String getResult(int ballCount, int strikeCount) {
+        if (strikeCount == 3) {
+            return Message.GAME_CLEAR;
+        } else if (ballCount == 0 && strikeCount == 0) {
+            return Message.NOTHING;
+        } else if (ballCount == 0) {
+            return strikeCount + Message.STRIKE;
+        } else if (strikeCount == 0) {
+            return ballCount + Message.BALL;
+        }
+        return ballCount + Message.BALL + " " + strikeCount + Message.STRIKE;
+    }
 }
